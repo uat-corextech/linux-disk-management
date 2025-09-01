@@ -14,3 +14,5 @@ lsblk
 #list storage device with full path and file system
 lsblk -fp
 
+# print partitions
+parted /dev/xvdb print
