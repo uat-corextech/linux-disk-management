@@ -16,3 +16,21 @@ lsblk -fp
 
 # print partitions
 parted /dev/xvdb print
+
+#Create a new partition table (⚠️ this wipes all partitions)
+parted /dev/xvdb mklabel msdos
+parted /dev/xvdb mklabel gpt
+
+#Creating Partitions
+#1MiB ensures alignment (instead of 0%).
+#Start/End can be in MB, GB, %, or sector numbers.
+#Filesystem type (ext4, xfs, etc.) is only informational
+
+parted /dev/xvdb mkpart primary ext4 1MiB 100MiB
+
+#expand partition:
+parted /dev/xvdb resizepart 1 150MiB
+
+#Shrink partition:
+parted /dev/xvdb resizepart 1 80MiB
+
