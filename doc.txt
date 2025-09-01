@@ -1,2 +1,4 @@
 Disk Management
+#command use to list disk and partitions
 parted -l
+
