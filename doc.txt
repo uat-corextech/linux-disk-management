@@ -34,5 +34,11 @@ parted /dev/xvdb resizepart 1 150MiB
 #Shrink partition:
 parted /dev/xvdb resizepart 1 80MiB
 
+#After partitioning, format file system
+mkfs -t ext4 /dev/xvdb1
+mkfs -t xfs /dev/xvdb1
+mkswap /dev/xvdb1
+
 #Delete a partition:
 parted /dev/xvdb rm 1
+
