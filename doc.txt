@@ -7,3 +7,6 @@ df -h
 
 #To see disk usage at the directory level
 du -sh /home
+
+#To list all attached storage devices
+lsblk
