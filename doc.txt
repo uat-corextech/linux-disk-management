@@ -42,3 +42,11 @@ mkswap /dev/xvdb1
 #Delete a partition:
 parted /dev/xvdb rm 1
 
+#create directory
+mkdir -p  /mnt/data
+
+# mount mount point temporary
+mount /dev/xvdb1 /mnt/data
+
+
+
