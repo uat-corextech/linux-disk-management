@@ -51,5 +51,32 @@ mount /dev/xvdb1 /mnt/data
 #Persistent mount → add to /etc/fstab:
 UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx /mnt/data ext4 defaults 0 2
 
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+#Suppose /dev/xvdb1 is 20MiB and you want 50MiB:
+sudo umount /dev/xvdb1
+sudo parted /dev/xvdb1 resizepart 1 50MiB
+
+#Purpose of e2fsck Before Resizing
+#When resizing (especially shrinking) a filesystem like ext4, you must ensure the filesystem is clean and consistent. If there are errors, resizing can:
+#Corrupt data
+#Lose inodes
+#Make the partition unmountable
+#That’s why e2fsck (ext2/ext3/ext4 filesystem checker) is run.
+
+sudo e2fsck -f /dev/sdb1
+
+
+sudo resize2fs /dev/sdb1
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+#🔹 Growing an XFS Filesystem
+
+sudo parted /dev/sdb resizepart 1 30GiB
+sudo xfs_repair /dev/sdb1
+sudo umount /dev/sdb1
+sudo xfs_repair /dev/sdb1
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
