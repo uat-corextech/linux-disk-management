@@ -9,4 +9,8 @@ df -h
 du -sh /home
 
 #To list all attached storage devices
-lsblk
+lsblk 
+
+#list storage device with full path and file system
+lsblk -fp
+
