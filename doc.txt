@@ -48,5 +48,8 @@ mkdir -p  /mnt/data
 # mount mount point temporary
 mount /dev/xvdb1 /mnt/data
 
+#Persistent mount → add to /etc/fstab:
+UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx /mnt/data ext4 defaults 0 2
+
 
 
