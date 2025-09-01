@@ -2,3 +2,8 @@ Disk Management
 #command use to list disk and partitions
 parted -l
 
+#Checking Disk Space and Usage
+df -h
+
+#To see disk usage at the directory level
+du -sh /home
