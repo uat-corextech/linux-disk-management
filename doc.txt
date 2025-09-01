@@ -77,6 +77,8 @@ sudo parted /dev/sdb resizepart 1 30GiB
 sudo xfs_repair /dev/sdb1
 sudo umount /dev/sdb1
 sudo xfs_repair /dev/sdb1
+sudo mount /dev/sdb1 /mnt/data
+sudo xfs_growfs /mnt/data
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
