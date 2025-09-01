@@ -34,3 +34,5 @@ parted /dev/xvdb resizepart 1 150MiB
 #Shrink partition:
 parted /dev/xvdb resizepart 1 80MiB
 
+#Delete a partition:
+parted /dev/xvdb rm 1
