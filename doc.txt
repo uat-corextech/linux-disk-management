@@ -1,1 +1,2 @@
 Disk Management
+parted -l
